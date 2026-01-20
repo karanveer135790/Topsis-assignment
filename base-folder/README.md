@@ -1,57 +1,86 @@
-# TOPSIS-102303670
+# TOPSIS Ranking Tool  
+### By Karanveer Singh (Roll No: 102303670)
 
-**for:** Project-1 (UCS633)  
-**submitted by:** Karanveer Singh  
-**Roll No:** 102303670  
-**Group:** 3C45  
-
-`topsispackage1.1.1` is a Python library for solving **Multiple Criteria Decision Making (MCDM)** problems using the  
-**Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS).**
+This command-line tool applies the TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) method to rank alternatives based on multiple quantitative criteria.
 
 ---
 
 ## Installation
 
-Use the package manager **pip** to install this package:
+pip install Topsis-Karanveer-102303670
 
-```bash
-pip install topsispackage1.1.1
+---
 
+## Input Data Format
 
-## usage
+The input must be a CSV file with the following structure:
 
-This package takes a CSV file as input, along with weights and impacts, and generates a result CSV file
-containing Topsis Score and Rank.
+Column 1: Alternatives  
+Column 2 onwards: Numerical criteria values
 
-Input Rules
+Example:
 
-The dataset must be a .csv file
+| City | AirQuality | Cost | Transport | Safety |
+|------|------------|------|-----------|--------|
+| C1 | 72 | 32000 | 7 | 8 |
+| C2 | 88 | 47000 | 9 | 6 |
+| C3 | 65 | 28000 | 6 | 9 |
+| C4 | 80 | 36000 | 8 | 8 |
 
-The first column should contain names/IDs (non-numeric)
+---
 
-All columns from 2nd onwards must be numeric
+## Weights and Impacts
 
-The file must contain at least 3 columns
+Weights (comma separated):
 
-Number of weights and impacts must match the number of numeric columns
+0.30,0.20,0.25,0.25
 
-Impacts must contain only + or -
+Impacts (comma separated):
 
++,-,+,+
 
-Python Function Usage
+---
 
-from topsis import topsis
+## Usage
 
-topsis(
-    "102303670-data.csv",
-    "1,1,1,1,2",
-    "+,+,-,+,+",
-    "102303670-result.csv"
+topsis <input_file.csv> <weights> <impacts> <output_file.csv>
 
-)
-Input File
-<img width="491" height="312" alt="image" src="https://github.com/user-attachments/assets/93aa4a71-883b-47b1-a22a-52d7eb5b2617" />
-Output File
-<img width="662" height="249" alt="image" src="https://github.com/user-attachments/assets/2a5edb06-1763-49af-af4e-1aad8d4c285f" />
+Example:
 
+topsis city.csv "0.30,0.20,0.25,0.25" "+,-,+,+" ranks.csv
 
+---
+
+## Output Format
+
+The output CSV will contain:
+
+City, Score, Rank
+
+Example:
+
+C1, 0.51, 3  
+C2, 0.56, 2  
+C3, 0.44, 4  
+C4, 0.67, 1
+
+Higher score means better rank.
+
+---
+
+## Error Handling
+
+The program checks for:
+
+Incorrect number of arguments  
+Non-numeric values in criteria columns  
+Invalid impact symbols (+ or - only)  
+Incorrect CSV format
+
+Appropriate error messages are displayed for invalid input.
+
+---
+
+## Conclusion
+
+This tool helps in decision making by converting multiple evaluation criteria into a single composite score using the TOPSIS method.
