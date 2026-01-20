@@ -47,4 +47,11 @@ topsis(
     "1,1,1,1,2",
     "+,+,-,+,+",
     "102303670-result.csv"
+
 )
+Input File
+<img width="491" height="312" alt="image" src="https://github.com/user-attachments/assets/93aa4a71-883b-47b1-a22a-52d7eb5b2617" />
+Output File
+<img width="662" height="249" alt="image" src="https://github.com/user-attachments/assets/2a5edb06-1763-49af-af4e-1aad8d4c285f" />
+
+
